@@ -1,0 +1,2 @@
+alert tcp any any -> any 3399 (msg:"First packet detected!"; pcre:"/(login|Initial)/"; flowbits:set,one; flowbits:noalert; sid:1000002;)
+alert tcp any any -> any 3399 (msg:"bot founded";pcre:"/(\b25[0-5]|\b2[0-4][0-9]|\b[01]?[0-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}:((6553[0-5])|(655[0-2][0-9])|(65[0-4][0-9]{2})|(6[0-4][0-9]{3})|([1-5][0-9]{4})|([0-5]{0,5})|([0-9]{1,4}))$/"; flowbits:isset,one; sid:1000001;)
